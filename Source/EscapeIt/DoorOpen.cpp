@@ -34,8 +34,6 @@ void UDoorOpen::BeginPlay()
 	Super::BeginPlay();
 	Owner = GetOwner(); // Get the owner of the class
 	Player = GetWorld()->GetFirstPlayerController()->GetPawn(); // get the player's pawn
-	
-	OpenDoor();
 }
 
 
