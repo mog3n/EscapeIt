@@ -37,8 +37,12 @@ public:
 		float OpenDoorAngle = 90.f;
 	UPROPERTY(EditAnywhere)
 		float CloseDoorDelayInSeconds = 1.0f;
+	UPROPERTY(EditAnywhere)
+		float TriggerMass = 30.f;
 	
+	float GetTotalMassOfActorsOnPlate(); // gets the total mass
+	void UpdatePlateMass(); // checks the mass on the pressure plate
+
 	AActor* Owner; // store the owner of the class
-	AActor* Player; // store player
 	float DoorLastOpenedInSeconds;
 };

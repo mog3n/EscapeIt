@@ -29,7 +29,7 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 private:
-	float Reach = 100.f; // arm length in cm
+	float Reach = 200.f; // arm length in cm
 	UPhysicsHandleComponent* PhysicsHandle = nullptr;
 	UInputComponent* InputComponent = nullptr;
 	// Ray-cast and grab what's in reach
@@ -37,6 +37,7 @@ private:
 	void Release();
 	void FindComponents();
 	void SetupInputComponent();
+	void UpdatePhysicsHandle();
 
 	const FHitResult GetFirstPhysicsBodyHit();
 };
