@@ -6,6 +6,8 @@
 #include "Components/ActorComponent.h"
 #include "GameFramework/PlayerController.h"
 #include "Engine/World.h"
+#include "Engine/Classes/Components/InputComponent.h"
+#include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "Grabber.generated.h"
 
 
@@ -28,4 +30,13 @@ public:
 
 private:
 	float Reach = 100.f; // arm length in cm
+	UPhysicsHandleComponent* PhysicsHandle = nullptr;
+	UInputComponent* InputComponent = nullptr;
+	// Ray-cast and grab what's in reach
+	void Grab();
+	void Release();
+	void FindComponents();
+	void SetupInputComponent();
+
+	const FHitResult GetFirstPhysicsBodyHit();
 };

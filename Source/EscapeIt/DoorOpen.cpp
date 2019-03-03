@@ -17,8 +17,9 @@ UDoorOpen::UDoorOpen()
 // Open the door
 void UDoorOpen::OpenDoor()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Door opened"))
+	UE_LOG(LogTemp, Warning, TEXT("Door opened"));
 	FRotator openRotation = FRotator(0.0f, OpenDoorAngle, 0.0f); // Create rotation
+	Owner->SetActorRotation(openRotation); // Open the door
 }
 
 // Close the door
@@ -47,7 +48,8 @@ void UDoorOpen::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 		OpenDoor();
 		DoorLastOpenedInSeconds = GetWorld()->GetTimeSeconds();
 	}
-
+	
+	// Open the door for n seconds
 	float timeDelta = GetWorld()->GetTimeSeconds() - DoorLastOpenedInSeconds;
 	if (timeDelta>CloseDoorDelayInSeconds) {
 		CloseDoor();
